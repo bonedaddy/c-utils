@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <strings.h>
 
 int getRandomNumber(int lower, int upper);
-char * getRandomString(int stringLength);
+char *getRandomString(int stringLength);
 
 // defines a constant character array
 const char letters[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -11,17 +12,22 @@ const char letters[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
 int main(void) {
     // seed random number generate using time
     srand(time(0));
-    printf("%c\n", letters[getRandomNumber(0, 25)]);    
-    printf("%s\n", getRandomString(10));
+    char *word = getRandomString(10);
+    printf("%s\n", word);
     return 0;
 }
 
 char *getRandomString(int stringLength) {
+    // create a temporary char pointer variable
     char *word;
     for (int i = 0; i < stringLength; i++) {
         word += letters[getRandomNumber(0, 25)];
     }
-    return word;
+    // allocate a chunk of memory size of word
+    char *retWord = malloc(sizeof(*word));
+    // assign dereference word and assign to retWord
+    *retWord = *word;
+    return (char *)retWord;
 }
 
 int getRandomNumber(int lower, int upper) {
