@@ -19,14 +19,15 @@ int main(void) {
 
 char *getRandomString(int stringLength) {
     // create a temporary char pointer variable
-    char *word;
+    char word[stringLength];
     for (int i = 0; i < stringLength; i++) {
-        word += letters[getRandomNumber(0, 25)];
+        word[i] = letters[getRandomNumber(0, 25)];
     }
     // allocate a chunk of memory size of word
     char *retWord = malloc(sizeof(*word));
-    // assign dereference word and assign to retWord
-    *retWord = *word;
+    for (int i = 0; i < stringLength; i++) {
+        retWord[i] = word[i];
+    }
     return (char *)retWord;
 }
 
