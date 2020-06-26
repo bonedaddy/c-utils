@@ -18,16 +18,20 @@ int main(void) {
 }
 
 char *getRandomString(int stringLength) {
-    // create a temporary char pointer variable
+    // create an array of chars of length stringLength
     char word[stringLength];
     for (int i = 0; i < stringLength; i++) {
         word[i] = letters[getRandomNumber(0, 25)];
     }
-    // allocate a chunk of memory size of word
-    char *retWord = malloc(sizeof(*word));
+    // allocate a chunk of memory sized to the word array
+    char *retWord = malloc(sizeof(word));
+    // assign each char from word to its corresponding vlaue in retWord
     for (int i = 0; i < stringLength; i++) {
         retWord[i] = word[i];
     }
+    // return a pointer to retWord
+    // i dont entirely understand why compiler complains
+    // if this is left out
     return (char *)retWord;
 }
 
