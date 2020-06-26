@@ -16,7 +16,7 @@ int main(void) {
     return 0;
 }
 
-char * getRandomString(int stringLength) {
+char *getRandomString(int stringLength) {
     char *word;
     for (int i = 0; i < stringLength; i++) {
         word += letters[getRandomNumber(0, 25)];
