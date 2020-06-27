@@ -1,15 +1,29 @@
 #include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <setjmp.h>
+#include <cmocka.h>
+#include <assert.h>
 #include "array_len.h"  // get it from local dir
 
-int main() {
+void test_array_len(void **state) {
     int empty[0];
-    if (array_len(empty) != 0) {
-        printf("bad value");
-        return -1;
-    }
-    int numbers[] = {0, 1, 2, 3, 4, 5};
-    printf("%zd\n", array_len(numbers));
-    char *words[] = {"hello world", "this is a test", "and here is some test datachan"};
-    printf("%zd\n", array_len(words));
-    printf("%zd\n", array_size(words));
+    int one[1] = {0};
+    assert(array_len(empty) == 0);
+    assert(array_len(one) == 1);
+}
+
+void test_array_size(void **state) {
+    int empty[0];
+    int two[2] = {0, 1};
+    assert(array_size(empty) == 0);
+    assert(array_size(two) == sizeof(int)*2);
+}
+
+int main(void) {
+    const struct CMUnitTest tests[] = {
+        cmocka_unit_test(test_array_len),
+        cmocka_unit_test(test_array_size),
+    };
+    return cmocka_run_group_tests(tests, NULL, NULL);
 }
