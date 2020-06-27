@@ -1,5 +1,11 @@
 .PHONY: all
-all: test-random test-array test-safe_mem
+all: clean test-random test-array test-safe_mem
+
+.PHONY: clean
+clean:
+	$(bash rm *.gcov)
+	$(bash rm *.gcda)
+	$(bash rm *.gcno)
 
 .PHONY: test-random
 test-random:
