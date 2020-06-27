@@ -1,11 +1,16 @@
 .PHONY: all
-all: clean test-random test-array test-safe_mem
+all: clean test-random test-array test-safe_mem gen-coverage
 
 .PHONY: clean
 clean:
 	$(bash rm *.gcov)
 	$(bash rm *.gcda)
 	$(bash rm *.gcno)
+
+.PHONY: gen-coverage
+gen-coverage:
+	lcov --base-directory . --directory . -c -o test.info
+	genhtml test.info --output-directory out
 
 .PHONY: test-random
 test-random:
