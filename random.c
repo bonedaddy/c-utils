@@ -13,6 +13,10 @@ int main(void) {
     // seed random number generate using time
     srand(time(0));
     char *word = getRandomString(10);
+    if (word == NULL) {
+        printf("failed to generate random string");
+        return -1;
+    }
     printf("%s\n", word);
     return 0;
 }
@@ -25,6 +29,9 @@ char *getRandomString(int stringLength) {
     }
     // allocate a chunk of memory sized to the word array
     char *retWord = malloc(sizeof(word));
+    if (retWord == NULL) {
+        return NULL;
+    }
     // assign each char from word to its corresponding vlaue in retWord
     for (int i = 0; i < stringLength; i++) {
         retWord[i] = word[i];
