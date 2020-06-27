@@ -3,6 +3,11 @@
 #include <stdbool.h>
 #include "safe_mem.h"
 
+typedef struct test_data {
+    char c[100];
+    bool b[100];
+} test_data;
+
 int main(void) {
     test_data *td = (test_data *)malloc(sizeof(test_data));
     td->c[0] = 'c';
@@ -24,7 +29,7 @@ int main(void) {
     }
 
     result = free_memory_object(&mobj);
-    
+
     if (result != -1) {
         printf("failed to prevent double free");
         return -1;
