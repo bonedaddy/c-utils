@@ -2,6 +2,11 @@
 
 Various utility functions I'm writing to help me learn C. Ideally I want to replicate functionality I commonly use in Golang in C.
 
+
+# testing
+
+Running `make` runs unit tests with cmocka, and generates coverage output
+
 # files
 
 ## array_len.h
