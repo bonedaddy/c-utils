@@ -42,5 +42,6 @@ int free_memory_object(memory_object *obj) {
     }
     obj->freed = true;
     free(obj->data);
+    obj->data = NULL;
     return 0;
 }
