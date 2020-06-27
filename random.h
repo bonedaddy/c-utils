@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <assert.h>
 
 int getRandomNumber(int lower, int upper);
 char *getRandomString(int stringLength);

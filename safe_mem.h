@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
 /*
     memory_object is a wrapper around a void pointer type
@@ -34,6 +35,10 @@ int free_memory_object(memory_object *obj) {
     free(obj->data);
     // set the data to a null pointer
     obj->data = NULL;
+    // aseert it is null otherwise fail
+    assert(obj->data == NULL);
+    // assert freed is true
+    assert(obj->freed == true);
     return 0;
 }
 
