@@ -13,6 +13,7 @@ typedef struct test_data {
 } test_data;
 
 int free_memory_object(memory_object *obj);
+memory_object new_memory_object(void *input);
 
 int free_memory_object(memory_object *obj) {
     if (obj->freed) {
@@ -22,4 +23,11 @@ int free_memory_object(memory_object *obj) {
     free(obj->data);
     obj->data = NULL;
     return 0;
+}
+
+memory_object new_memory_object(void *input) {
+    memory_object mobj;
+    mobj.freed = false;
+    mobj.data = input;
+    return mobj;
 }
