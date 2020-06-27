@@ -3,3 +3,6 @@ a.out
 *.gcda
 *.gcno
 *.gcov
+test.info
+
+out/
