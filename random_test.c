@@ -10,12 +10,12 @@
 #include "array_len.h"
 
 void test_get_random_string_length(void **state) {
-    char *word = getRandomString(10);
+    char *word = get_random_string(10);
     assert(sizeof(word) == 8);
 }
 
 void test_get_random_number_range(void **state) {
-    int number = getRandomNumber(0, 25);
+    int number = get_random_number(0, 25);
     assert(number >= 0 && number <= 25);
 }
 

@@ -3,17 +3,17 @@
 #include <time.h>
 #include <assert.h>
 
-int getRandomNumber(int lower, int upper);
-char *getRandomString(int stringLength);
+int get_random_number(int lower, int upper);
+char *get_random_string(int stringLength);
 
 // defines a constant character array
 const char letters[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-char *getRandomString(int stringLength) {
+char *get_random_string(int stringLength) {
     // create an array of chars of length stringLength
     char word[stringLength];
     for (int i = 0; i < stringLength; i++) {
-        word[i] = letters[getRandomNumber(0, 25)];
+        word[i] = letters[get_random_number(0, 25)];
     }
     // allocate a chunk of memory sized to the word array
     // not sure why its showing an error in vscode???
@@ -32,6 +32,6 @@ char *getRandomString(int stringLength) {
     return (char *)retWord;
 }
 
-int getRandomNumber(int lower, int upper) {
+int get_random_number(int lower, int upper) {
     return (rand() % (upper - lower + 1)) + lower;
 }
