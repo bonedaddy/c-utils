@@ -1,3 +1,6 @@
+.PHONY: all
+all: test-random test-array test-safe_mem
+
 .PHONY: test-random
 test-random:
 	gcc random_test.c -lcmocka
