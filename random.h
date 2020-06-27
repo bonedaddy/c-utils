@@ -1,25 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <strings.h>
 
 int getRandomNumber(int lower, int upper);
 char *getRandomString(int stringLength);
 
 // defines a constant character array
 const char letters[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-
-int main(void) {
-    // seed random number generate using time
-    srand(time(0));
-    char *word = getRandomString(10);
-    if (word == NULL) {
-        printf("failed to generate random string");
-        return -1;
-    }
-    printf("%s\n", word);
-    return 0;
-}
 
 char *getRandomString(int stringLength) {
     // create an array of chars of length stringLength
@@ -28,6 +15,8 @@ char *getRandomString(int stringLength) {
         word[i] = letters[getRandomNumber(0, 25)];
     }
     // allocate a chunk of memory sized to the word array
+    // not sure why its showing an error in vscode???
+    // https://stackoverflow.com/questions/50557000/complie-error-in-c-program-visual-studio-regarding-malloc-a-value-of-type-vo?rq=1
     char *retWord = malloc(sizeof(word));
     if (retWord == NULL) {
         return NULL;
