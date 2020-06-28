@@ -14,7 +14,7 @@ clean:
 
 .PHONY: static-analysis
 static-analysis:
-	cppcheck .
+	cppcheck --enable=all --inconclusive --library=posix --suppress=missingIncludeSystem .
 
 .PHONY: gen-coverage
 gen-coverage:
