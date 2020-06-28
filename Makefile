@@ -7,6 +7,10 @@ clean:
 	$(shell rm *.gcda)
 	$(shell rm *.gcno)
 	$(shell rm *.gch)
+	$(shell rm -rf c-utils)
+	$(shell rm -rf out)
+	$(shell rm a.out)
+	$(shell rm test.info)
 
 .PHONY: static-analysis
 static-analysis:
