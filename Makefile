@@ -3,9 +3,14 @@ all: clean test-random test-array test-safe_mem gen-coverage
 
 .PHONY: clean
 clean:
-	$(bash rm *.gcov)
-	$(bash rm *.gcda)
-	$(bash rm *.gcno)
+	$(shell rm *.gcov)
+	$(shell rm *.gcda)
+	$(shell rm *.gcno)
+	$(shell rm *.gch)
+
+.PHONY: static-analysis
+static-analysis:
+	cppcheck .
 
 .PHONY: gen-coverage
 gen-coverage:
